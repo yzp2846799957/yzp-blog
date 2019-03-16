@@ -140,16 +140,18 @@
 
 
 
-  <meta name="description" content="我很弱，但是我要坚强！绝不让那些为我付出过的人失望！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="yzp&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
+  <meta name="description" content="题面 题目描述：给出一个长为 $n$ 的数列，以及 $n$ 个操作，操作涉及区间加法，询问区间内小于某个值 $x$ 的前驱（比其小的最大元素）。 思路：我们可以扩展一下分块维护的东西，我们对于每个块记录一个$set$和$map$(辅助删数)表示这个块内元素的种类以及每个元素的数量，修改时若$map$中的该元素只有一个就把该元素从$set$中删除，否则不删，然后加入$x+c$，然后查询时$lower">
+<meta name="keywords" content="分块">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数列分块入门3">
+<meta property="og:url" content="http://yoursite.com/2019/03/16/数列分块入门3/index.html">
 <meta property="og:site_name" content="yzp&#39;s Blog">
-<meta property="og:description" content="我很弱，但是我要坚强！绝不让那些为我付出过的人失望！">
+<meta property="og:description" content="题面 题目描述：给出一个长为 $n$ 的数列，以及 $n$ 个操作，操作涉及区间加法，询问区间内小于某个值 $x$ 的前驱（比其小的最大元素）。 思路：我们可以扩展一下分块维护的东西，我们对于每个块记录一个$set$和$map$(辅助删数)表示这个块内元素的种类以及每个元素的数量，修改时若$map$中的该元素只有一个就把该元素从$set$中删除，否则不删，然后加入$x+c$，然后查询时$lower">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-16T03:07:20.012Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yzp&#39;s Blog">
-<meta name="twitter:description" content="我很弱，但是我要坚强！绝不让那些为我付出过的人失望！">
+<meta name="twitter:title" content="数列分块入门3">
+<meta name="twitter:description" content="题面 题目描述：给出一个长为 $n$ 的数列，以及 $n$ 个操作，操作涉及区间加法，询问区间内小于某个值 $x$ 的前驱（比其小的最大元素）。 思路：我们可以扩展一下分块维护的东西，我们对于每个块记录一个$set$和$map$(辅助删数)表示这个块内元素的种类以及每个元素的数量，修改时若$map$中的该元素只有一个就把该元素从$set$中删除，否则不删，然后加入$x+c$，然后查询时$lower">
 
 
 
@@ -158,7 +160,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/page/2/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/16/数列分块入门3/">
 
 
 
@@ -168,7 +170,7 @@
   };
 </script>
 
-  <title>归档 | yzp's Blog</title>
+  <title>数列分块入门3 | yzp's Blog</title>
   
 
 
@@ -216,7 +218,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -304,7 +306,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
 
     
     
@@ -375,425 +377,238 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      
-      <span class="archive-page-counter">
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/16/数列分块入门3/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yzp">
+      <meta itemprop="description" content="我很弱，但是我要坚强！绝不让那些为我付出过的人失望！">
+      <meta itemprop="image" content="https://i.loli.net/2019/01/16/5c3f1d5e7f550.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzp's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">数列分块入门3
+
+              
+            
+          </h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-16 11:02:33 / 修改时间：11:07:20" itemprop="dateCreated datePublished" datetime="2019-03-16T11:02:33+08:00">2019-03-16</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 22 篇日志。 继续努力。
-      </span>
-      
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/题解/" itemprop="url" rel="index"><span itemprop="name">题解</span></a></span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
 
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/03/02/旅游/" itemprop="url">
-              
-                <span itemprop="name">旅游</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-02T11:52:37+08:00" content="2019-03-02">
-          03-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/14/CDQ分治/" itemprop="url">
-              
-                <span itemprop="name">CDQ分治</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-14T20:42:43+08:00" content="2019-01-14">
-          01-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/12/基环树学习理解/" itemprop="url">
-              
-                <span itemprop="name">基环树学习理解</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-12T10:47:46+08:00" content="2019-01-12">
-          01-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/12/22/线性方程组/" itemprop="url">
+          
+            <div class="post-symbolscount">
               
-                <span itemprop="name">线性方程组</span>
+
               
-            </a>
-        
-      </h2>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数"></span>
+              
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-22T15:52:03+08:00" content="2018-12-22">
-          12-22
-        </time>
-      </div>
+              
+                <span class="post-meta-divider">|</span>
+              
 
-    </header>
-  </article>
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长"></span>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/12/22/球形空间产生器/" itemprop="url">
-              
-                <span itemprop="name">球形空间产生器</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-22T13:58:21+08:00" content="2018-12-22">
-          12-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/12/18/洛谷-榨取kkksc03/" itemprop="url">
-              
-                <span itemprop="name">[洛谷]榨取kkksc03</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-18T12:31:15+08:00" content="2018-12-18">
-          12-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p><div class="image" style="background-image:url(https://ws4.sinaimg.cn/large/0072Vf1pgy1fodqiguph4j31hc0xcqg9.jpg)"></div><br><a href="https://loj.ac/problem/6279" target="_blank" rel="noopener">题面</a></p>
+<h5 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h5><p>给出一个长为 $n$ 的数列，以及 $n$ 个操作，操作涉及区间加法，询问区间内小于某个值 $x$ 的前驱（比其小的最大元素）。</p>
+<h5 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h5><p>我们可以扩展一下分块维护的东西，我们对于每个块记录一个$set$和$map$(辅助删数)表示这个块内元素的种类以及每个元素的数量，修改时若$map$中的该元素只有一个就把该元素从$set$中删除，否则不删，然后加入$x+c$，然后查询时$lower_bound$一下，前一个元素就是前驱，如果为$set.begin()$就继续。<br><a id="more"></a></p>
+<h5 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> a[maxn],pos[maxn],block,tag[<span class="number">110</span>],n;</span><br><span class="line"><span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;s[<span class="number">110</span>];</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;ct[<span class="number">110</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">L</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;<span class="keyword">return</span> (x - <span class="number">1</span>) * block + <span class="number">1</span>;&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">R</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;<span class="keyword">return</span> x * block;&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> out = <span class="number">0</span>;<span class="keyword">bool</span> flag = <span class="number">0</span>;<span class="keyword">char</span> ch = getchar();</span><br><span class="line">	<span class="keyword">while</span>(!<span class="built_in">isdigit</span>(ch))&#123;flag = (ch == <span class="string">'-'</span>);ch = getchar();&#125;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">isdigit</span>(ch))&#123;out = (out &lt;&lt; <span class="number">1</span>) + (out &lt;&lt; <span class="number">3</span>) + ch - <span class="string">'0'</span>;ch = getchar();&#125;</span><br><span class="line">	<span class="keyword">return</span> flag?-out:out;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reset</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ct[pos[x]][a[x]]--;</span><br><span class="line">	<span class="keyword">if</span>(ct[pos[x]][a[x]] == <span class="number">0</span>)s[pos[x]].erase(a[x]);</span><br><span class="line">	a[x] += c;</span><br><span class="line">	ct[pos[x]][a[x]]++;</span><br><span class="line">	s[pos[x]].insert(a[x]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = l ; i &lt;= min(R(pos[l]),r) ; ++ i)</span><br><span class="line">		reset(i,c);</span><br><span class="line">	<span class="keyword">if</span>(pos[l] != pos[r])</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = L(pos[r]) ; i &lt;= r ; ++ i)</span><br><span class="line">			reset(i,c);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = pos[l] + <span class="number">1</span> ; i &lt;= pos[r] - <span class="number">1</span> ; ++ i)</span><br><span class="line">		tag[i] += c;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ans = <span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = l ; i &lt;= min(R(pos[l]),r) ; ++ i)</span><br><span class="line">		<span class="keyword">if</span>(a[i] + tag[pos[l]] &lt; c)ans = max(ans,a[i] + tag[pos[l]]);</span><br><span class="line">	<span class="keyword">if</span>(pos[l] != pos[r])</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = L(pos[r]) ; i &lt;= r ; ++ i)</span><br><span class="line">			<span class="keyword">if</span>(a[i] + tag[pos[r]] &lt; c)ans = max(ans,a[i] + tag[pos[r]]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = pos[l] + <span class="number">1</span> ; i &lt;= pos[r] - <span class="number">1</span> ; ++ i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> x = c - tag[i];</span><br><span class="line">		<span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;::iterator it = s[i].lower_bound(x);</span><br><span class="line">		<span class="keyword">if</span>(it == s[i].begin())<span class="keyword">continue</span>;</span><br><span class="line">		it--;</span><br><span class="line">		ans = max(ans,*it + tag[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	n = read();</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span> ; i &lt;= n ; ++ i)a[i] = read();</span><br><span class="line">	<span class="keyword">if</span>(n &lt;= <span class="number">5000</span>)block = <span class="built_in">sqrt</span>(n);<span class="comment">//卡常</span></span><br><span class="line">	<span class="keyword">else</span> block = <span class="number">1000</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span> ; i &lt;= n ; ++ i)</span><br><span class="line">	&#123;</span><br><span class="line">		pos[i] = (i - <span class="number">1</span>) / block + <span class="number">1</span>;</span><br><span class="line">		s[pos[i]].insert(a[i]);</span><br><span class="line">		ct[pos[i]][a[i]]++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span> ; i &lt;= n ; ++ i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> opt,l,r,c;</span><br><span class="line">		opt = read();l = read();r = read();c = read();</span><br><span class="line">		<span class="keyword">if</span>(opt == <span class="number">0</span>)add(l,r,c);</span><br><span class="line">		<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,query(l,r,c));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/12/17/模板-treap/" itemprop="url">
-              
-                <span itemprop="name">[模板]treap</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-17T12:26:29+08:00" content="2018-12-17">
-          12-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/12/17/NOIP反省与分析/" itemprop="url">
-              
-                <span itemprop="name">NOIP反省与分析</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-17T12:22:29+08:00" content="2018-12-17">
-          12-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/12/15/NOIP游记/" itemprop="url">
-              
-                <span itemprop="name">NOIP游记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-15T22:14:04+08:00" content="2018-12-15">
-          12-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/12/15/未完成/" itemprop="url">
-              
-                <span itemprop="name">尚未完成的知识点</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-15T19:17:33+08:00" content="2018-12-15">
-          12-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/分块/" rel="tag"># 分块</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/16/数列分块入门2/" rel="next" title="数列分块入门2">
+                <i class="fa fa-chevron-left"></i> 数列分块入门2
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
+  </article>
 
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MTY5Ni8xODI0Mg=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -814,8 +629,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -953,6 +777,22 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#题目描述："><span class="nav-number">1.</span> <span class="nav-text">题目描述：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#思路："><span class="nav-number">2.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -1161,6 +1001,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script src="/js/src/post-details.js?v=6.6.0"></script>
+
+
 
   
 
@@ -1173,6 +1017,20 @@
 
 
 
+  
+    <script>
+      window.livereOptions = {
+        refer: '2019/03/16/数列分块入门3/'
+      };
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-17T02:09:22.499Z</updated>
+  <updated>2019-03-17T02:16:44.838Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数列分块入门4</title>
+    <link href="http://yoursite.com/2019/03/17/%E6%95%B0%E5%88%97%E5%88%86%E5%9D%97%E5%85%A5%E9%97%A84/"/>
+    <id>http://yoursite.com/2019/03/17/数列分块入门4/</id>
+    <published>2019-03-17T02:12:40.000Z</published>
+    <updated>2019-03-17T02:16:44.838Z</updated>
+    
+    <content type="html"><![CDATA[<p><div class="image" style="background-image:url(https://ws4.sinaimg.cn/large/0072Vf1pgy1fodqo4ntdtj31cq0yggz8.jpg)"></div><br><a href="https://loj.ac/problem/6280" target="_blank" rel="noopener">题面</a></p><h5 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h5><p>给出一个长为 $n$ 的数列，以及 $n$ 个操作，操作涉及区间加法，区间求和。</p><h5 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h5><p>我们记录一个加法标记，维护每个块的sum值就可以轻松过了。<br><a id="more"></a></p><h5 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">5e4</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> n,a[maxn],block,sum[maxn],tag[maxn],pos[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">L</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;<span class="keyword">return</span> (x - <span class="number">1</span>) * block + <span class="number">1</span>;&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">R</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;<span class="keyword">return</span> x * block;&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">block = <span class="built_in">sqrt</span>(n);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span> ; i &lt;= n ; ++ i)pos[i] = (i - <span class="number">1</span>) / block + <span class="number">1</span>,sum[pos[i]] += a[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = l ; i &lt;= min(R(pos[l]),r) ; ++ i)</span><br><span class="line">&#123;</span><br><span class="line">a[i] += c;</span><br><span class="line">sum[pos[l]] += c;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(pos[l] != pos[r])&#123;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = L(pos[r]) ; i &lt;= r ; ++ i)</span><br><span class="line">&#123;</span><br><span class="line">a[i] += c;</span><br><span class="line">sum[pos[r]] += c;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = pos[l] + <span class="number">1</span> ; i &lt;= pos[r] - <span class="number">1</span> ; ++ i)</span><br><span class="line">tag[i] += c;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> mod)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = l ; i &lt;= min(R(pos[l]),r) ; ++ i)</span><br><span class="line">ans = ((ans + a[i]) % mod + tag[pos[l]]) % mod;</span><br><span class="line"><span class="keyword">if</span>(pos[l] != pos[r])&#123;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = L(pos[r]) ; i &lt;= r ; ++ i)</span><br><span class="line">ans = ((ans + a[i]) % mod + tag[pos[r]]) % mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = pos[l] + <span class="number">1</span> ; i &lt;= pos[r] - <span class="number">1</span> ; ++ i)</span><br><span class="line">&#123;</span><br><span class="line">ans = (ans + sum[i]) % mod;</span><br><span class="line">ans = (ans + tag[i] * (R(i) - L(i) + <span class="number">1</span>) % mod) % mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span> ; i &lt;= n ; ++ i)<span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">init();</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span> ; i &lt;= n ; ++ i)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">int</span> opt,l,r,c;</span><br><span class="line"><span class="built_in">cin</span> &gt;&gt; opt &gt;&gt; l &gt;&gt; r &gt;&gt; c;</span><br><span class="line"><span class="keyword">if</span>(opt == <span class="number">0</span>)add(l,r,c);</span><br><span class="line"><span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; query(l,r,c + <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;div class=&quot;image&quot; style=&quot;background-image:url(https://ws4.sinaimg.cn/large/0072Vf1pgy1fodqo4ntdtj31cq0yggz8.jpg)&quot;&gt;&lt;/div&gt;&lt;br&gt;&lt;a href=&quot;https://loj.ac/problem/6280&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;题面&lt;/a&gt;&lt;/p&gt;
+&lt;h5 id=&quot;题目描述：&quot;&gt;&lt;a href=&quot;#题目描述：&quot; class=&quot;headerlink&quot; title=&quot;题目描述：&quot;&gt;&lt;/a&gt;题目描述：&lt;/h5&gt;&lt;p&gt;给出一个长为 $n$ 的数列，以及 $n$ 个操作，操作涉及区间加法，区间求和。&lt;/p&gt;
+&lt;h5 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h5&gt;&lt;p&gt;我们记录一个加法标记，维护每个块的sum值就可以轻松过了。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="题解" scheme="http://yoursite.com/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+      <category term="分块" scheme="http://yoursite.com/tags/%E5%88%86%E5%9D%97/"/>
+    
+  </entry>
   
   <entry>
     <title>数列分块入门1</title>
@@ -471,33 +495,6 @@
 
 &lt;h3 id=&quot;color-red-NOIP2018-反省与分析&quot;&gt;&lt;a href=&quot;#color-red-NOIP2018-反省与分析&quot; class=&quot;headerlink&quot; title=&quot;$\color{red}{NOIP2018}$反省与分析&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://www.luogu.org/blog/yzp2846799957/noip-you-ji-tui-yi-ji-post&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;$\color{red}{NOIP2018}$&lt;/a&gt;&lt;a href=&quot;https://www.luogu.org/blog/yzp2846799957/noip-fan-xing-yu-fen-xi&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;反省与分析&lt;/a&gt;&lt;/h3&gt;&lt;h4 id=&quot;关于本次-color-red-NOIP-的一点总结&quot;&gt;&lt;a href=&quot;#关于本次-color-red-NOIP-的一点总结&quot; class=&quot;headerlink&quot; title=&quot;关于本次$\color{red}{NOIP}$的一点总结&quot;&gt;&lt;/a&gt;关于本次$\color{red}{NOIP}$的一点总结&lt;/h4&gt;&lt;p&gt;先总结一下自己这次$\color{red}{NOIP}$做的好的一点吧。&lt;/p&gt;
 &lt;p&gt;这次$\color{red}{NOIP}$是抱着平常心态去考的，虽然其中出现了很多的障碍，但是心态保持的很好，没有出现什么心态爆炸。可以说这是我相对发挥不错的一次了。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="心得" scheme="http://yoursite.com/categories/%E5%BF%83%E5%BE%97/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>NOIP游记</title>
-    <link href="http://yoursite.com/2018/12/15/NOIP%E6%B8%B8%E8%AE%B0/"/>
-    <id>http://yoursite.com/2018/12/15/NOIP游记/</id>
-    <published>2018-12-15T14:14:04.000Z</published>
-    <updated>2019-03-06T11:45:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<div class="image" style="background:url(https://ws4.sinaimg.cn/large/0072Vf1pgy1foxlned8v0j31kw0w01j3.jpg)"></div><h3 id="color-Blue-NOIP-退役记"><a href="#color-Blue-NOIP-退役记" class="headerlink" title="$\color{Blue}{NOIP}$退役记"></a>$\color{Blue}{NOIP}$退役记</h3><p>关于本次的$NOIP$心里都是悔恨。。。。。（文件名都打错了）；</p><ul><li>考前</li></ul><p>蒟蒻的我是最后一批停课的（果然还是太菜了），<del>但还是因此逃过了期中考试</del>然后接下来就是各种各样的集训，每天就是上午写题，下午改题，晚上接着考。感觉自己经历了绝望，看着自己不忍入目的分数与大佬的神仙成绩，感觉$NOIP$凉了。</p><a id="more"></a><ul><li>$day0:$</li></ul><p>考前看了看基础算法的模板，复习复习<del>（然而貌似并没有什么用）</del>晚上睡得很香呢 ^ _ ^</p><ul><li>$day1:$</li></ul><p>首先浪费了半个小时调配置。</p><p>调完后猛然发现无法解压文件（好方）最后找监考老师用他的U盘重新拷了一份试题才能解压。（不祥的预感）</p><p>第一题这这是什么$???$</p><p>$n^2$不能过？集中生智的把所有数据看了一遍找到了规律（好像是类似差分的一个东西）。（耗了我$20$分钟……最后出考场发现是原题……石化了）</p><p>第二题理解错了题意，花了半个小时改，发现错了（以为是小凯的疑惑，发现过不了大样例<del>心情简单</del> <del>才怪</del>）。</p><p>于是开始重码代码，码了一个玄学的筛法(本来想打完全背包(有个小细节不会处理))。后来测试还过了。（开心）</p><p>第三题看了后感觉可能是树形dp+二分答案（然而树形$dp$不会打）（$qwq$）</p><p>第一天总体感觉还好吧。除了最后一题的骗分外，其他题的的总体发挥还是令我蛮满意的。</p><ul><li>$day2$</li></ul><p>第一题最开始觉得还蛮简单，以为一通暴搜加贪心就可以了，结果看了数据后发现不对劲$(m = n - 1)???$那不是树了吗？<br>在往下滑发现$(m = n)$，舒了口气。以为上面的树的情况是部分分。结果考完后别人告诉我是基树环。…………</p><p>第二题看了后以为是数论（事实上在标程出来之前都没推出来……）<br>花了我考场珍贵的两小时在上面，结果不仅没推出来，文件名也没检查，然后你懂得。。</p><p>没有第三题了…………</p><p>第二天是真的炸了，主要还是自己好多知识的储备还不够，回去后要好好反省这次考试了。</p><p>总体的情况还算正常。感觉自己最近有点过多关注这次考试成绩了<del>（能不关心吗??）</del></p><p>总之已经考完了<del>（考后当然该大颓一波）</del>考完后看了看柯南，震惊与安室透的飙车技术，看到最后突然想起这次$NOIP$提高组考凉了……</p><p>写完这个后我就不再谈这次考试成绩了。分析与反省比成绩单上的数字更重要，好好学习才是接下来我该做的。<del>想到还有一堆作业等着我</del></p><p><a href="https://www.luogu.org/blog/yzp2846799957/noip-fan-xing-yu-fen-xi" target="_blank" rel="noopener">$\color{blue}{NOIP}$反省与总结</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;div class=&quot;image&quot; style=&quot;background:url(https://ws4.sinaimg.cn/large/0072Vf1pgy1foxlned8v0j31kw0w01j3.jpg)&quot;&gt;&lt;/div&gt;
-
-
-&lt;h3 id=&quot;color-Blue-NOIP-退役记&quot;&gt;&lt;a href=&quot;#color-Blue-NOIP-退役记&quot; class=&quot;headerlink&quot; title=&quot;$\color{Blue}{NOIP}$退役记&quot;&gt;&lt;/a&gt;$\color{Blue}{NOIP}$退役记&lt;/h3&gt;&lt;p&gt;关于本次的$NOIP$心里都是悔恨。。。。。（文件名都打错了）；&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;考前&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;蒟蒻的我是最后一批停课的（果然还是太菜了），&lt;del&gt;但还是因此逃过了期中考试&lt;/del&gt;然后接下来就是各种各样的集训，每天就是上午写题，下午改题，晚上接着考。感觉自己经历了绝望，看着自己不忍入目的分数与大佬的神仙成绩，感觉$NOIP$凉了。&lt;/p&gt;
     
     </summary>
     

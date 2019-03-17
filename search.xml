@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[数列分块入门4]]></title>
+    <url>%2F2019%2F03%2F17%2F%E6%95%B0%E5%88%97%E5%88%86%E5%9D%97%E5%85%A5%E9%97%A84%2F</url>
+    <content type="text"><![CDATA[题面 题目描述：给出一个长为 $n$ 的数列，以及 $n$ 个操作，操作涉及区间加法，区间求和。 思路：我们记录一个加法标记，维护每个块的sum值就可以轻松过了。 代码：1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859#include&lt;bits/stdc++.h&gt;using namespace std;#define int long longconst int maxn = 5e4 + 10;int n,a[maxn],block,sum[maxn],tag[maxn],pos[maxn];int L(int x)&#123;return (x - 1) * block + 1;&#125;int R(int x)&#123;return x * block;&#125;void init()&#123; block = sqrt(n); for(int i = 1 ; i &lt;= n ; ++ i)pos[i] = (i - 1) / block + 1,sum[pos[i]] += a[i];&#125;void add(int l,int r,int c)&#123; for(int i = l ; i &lt;= min(R(pos[l]),r) ; ++ i) &#123; a[i] += c; sum[pos[l]] += c; &#125; if(pos[l] != pos[r])&#123; for(int i = L(pos[r]) ; i &lt;= r ; ++ i) &#123; a[i] += c; sum[pos[r]] += c; &#125; &#125; for(int i = pos[l] + 1 ; i &lt;= pos[r] - 1 ; ++ i) tag[i] += c;&#125;int query(int l,int r,int mod)&#123; int ans = 0; for(int i = l ; i &lt;= min(R(pos[l]),r) ; ++ i) ans = ((ans + a[i]) % mod + tag[pos[l]]) % mod; if(pos[l] != pos[r])&#123; for(int i = L(pos[r]) ; i &lt;= r ; ++ i) ans = ((ans + a[i]) % mod + tag[pos[r]]) % mod; &#125; for(int i = pos[l] + 1 ; i &lt;= pos[r] - 1 ; ++ i) &#123; ans = (ans + sum[i]) % mod; ans = (ans + tag[i] * (R(i) - L(i) + 1) % mod) % mod; &#125; return ans;&#125;signed main()&#123; cin &gt;&gt; n; for(int i = 1 ; i &lt;= n ; ++ i)cin &gt;&gt; a[i]; init(); for(int i = 1 ; i &lt;= n ; ++ i) &#123; int opt,l,r,c; cin &gt;&gt; opt &gt;&gt; l &gt;&gt; r &gt;&gt; c; if(opt == 0)add(l,r,c); else cout &lt;&lt; query(l,r,c + 1) &lt;&lt; endl; &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>分块</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[数列分块入门1]]></title>
     <url>%2F2019%2F03%2F17%2F%E6%95%B0%E5%88%97%E5%88%86%E5%9D%97%E5%85%A5%E9%97%A81%2F</url>
     <content type="text"><![CDATA[题面 题目描述：给出一个长为 $n$ 的数列，以及 $n$ 个操作，操作涉及区间加法，单点查值。树状数组板子题，但我们可以用分块写。 思路：我们记录一个tag加法标记，查询时直接将那个数+它所在块的tag标记即可。 代码：1234567891011121314151617181920212223242526272829303132333435363738#include&lt;bits/stdc++.h&gt;using namespace std;#define int long longconst int maxn = 1e5 + 10;int n,block,a[maxn],tag[maxn],pos[maxn];int L(int x)&#123;return (x - 1) * block + 1;&#125;int R(int x)&#123;return x * block;&#125;void add(int l,int r,int c)&#123; for(int i = l ; i &lt;= min(R(pos[l]),r) ; ++ i) a[i] += c; if(pos[l] != pos[r]) &#123; for(int i = L(pos[r]) ; i &lt;= r ; ++ i) a[i] += c; &#125; for(int i = pos[l] + 1 ; i &lt;= pos[r] - 1 ; ++ i) tag[i] += c;&#125;signed main()&#123; ios::sync_with_stdio(0); cin &gt;&gt; n; block = sqrt(n); for(int i = 1 ; i &lt;= n ; ++ i) &#123; cin &gt;&gt; a[i]; pos[i] = (i - 1) / block + 1; &#125; for(int i = 1 ; i &lt;= n ; ++ i) &#123; int opt,l,r,c; cin &gt;&gt; opt &gt;&gt; l &gt;&gt; r &gt;&gt; c; if(opt == 0)add(l,r,c); else cout &lt;&lt; a[r] + tag[pos[r]] &lt;&lt; endl; &#125; return 0;&#125;]]></content>
